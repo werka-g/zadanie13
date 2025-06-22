@@ -4,7 +4,6 @@ import { defineConfig } from 'vite'
 import { glob } from 'node:fs/promises'
 import tailwindcss from '@tailwindcss/vite'
 
-
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const inputs = [];
@@ -15,6 +14,7 @@ for await (const entry of glob('src/**/*.html')) {
 }
 
 export default defineConfig({
+  base: '/zadanie13/',    
   plugins: [
     tailwindcss(),
   ],
@@ -25,6 +25,6 @@ export default defineConfig({
     rollupOptions: {
       input: inputs,
     },
-    outDir: resolve(__dirname, 'dist'),
+    outDir: resolve(__dirname, 'docs'), 
   },
 })

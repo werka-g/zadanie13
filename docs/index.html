@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lista artykułów</title>
+    <script type="module" crossorigin src="/zadanie13/assets/index-yX4cIK9x.js"></script>
+    <link rel="modulepreload" crossorigin href="/zadanie13/assets/index-BFZQxHcS.js">
+    <link rel="stylesheet" crossorigin href="/zadanie13/assets/index-DqhIoP84.css">
+  </head>
+  <body class="bg-gray-100 min-h-screen flex flex-col items-center p-4">
+    <header class="w-full max-w-4xl flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold">Artykuły</h1>
+      <button id="logout-btn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition">
+        Wyloguj
+      </button>
+    </header>
+
+    <main class="w-full max-w-4xl">
+      <section id="articles-list" class="space-y-6"></section>
+
+      <button id="add-article-btn" class="mt-6 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition">
+        Dodaj artykuł
+      </button>
+    </main>
+
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+      <form id="article-form" class="bg-white p-6 rounded shadow max-w-lg w-full space-y-4">
+        <h2 id="modal-title" class="text-xl font-semibold"></h2>
+
+        <input id="title" type="text" placeholder="Tytuł" required class="w-full border px-3 py-2 rounded" />
+        <input id="subtitle" type="text" placeholder="Podtytuł" class="w-full border px-3 py-2 rounded" />
+        <input id="author" type="text" placeholder="Autor" required class="w-full border px-3 py-2 rounded" />
+        <textarea id="content" placeholder="Treść" required class="w-full border px-3 py-2 rounded" rows="5"></textarea>
+
+        <div class="flex justify-end gap-4">
+          <button type="button" id="cancel-btn" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded">Anuluj</button>
+          <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">Zapisz</button>
+        </div>
+      </form>
+    </div>
+
+    <template id="article-template">
+      <article class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-bold" data-title></h2>
+        <p class="text-gray-600" data-subtitle></p>
+        <p class="mt-2" data-content></p>
+        <div class="mt-4 text-sm text-gray-500">
+          <span data-author></span> • <span data-date></span>
+        </div>
+        <div data-owner-actions class="mt-4 flex gap-2">
+          <button class="edit-btn bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">Edytuj</button>
+          <button class="delete-btn bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded">Usuń</button>
+        </div>
+      </article>
+    </template>
+
+  </body>
+</html>
